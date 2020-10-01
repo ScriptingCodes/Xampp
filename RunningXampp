@@ -1,0 +1,25 @@
+Step 1:  Re-open Terminal if necessary. If you closed the Terminal window that you used to install XAMPP, re-open Terminal.
+
+XAMPP doesn't have any desktop files, so you'll need to launch it from within its installation directory via Terminal each time you want to run it.
+
+Step 2:  Switch to the XAMPP installation directory. 
+
+Type in cd /opt/lampp and press ↵ Enter.
+
+Step 3:  Enter the "Open" command. 
+
+Type in sudo ./manager-linux-x64.run﻿ and press ↵ Enter. 
+
+Step 4:  Enter your password when prompted. 
+
+Type in the password you usually use to log into your computer, then press ↵ Enter. 
+
+Step 5: Click the Manage Servers tab. 
+
+This option is at the top of the window. 
+
+Step 6:  Click Start All.
+
+It's at the bottom of the window. Doing so prompts any active components of XAMPP to begin running. 
+
+
