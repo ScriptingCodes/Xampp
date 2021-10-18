@@ -1,13 +1,26 @@
 #!/bin/sh
+# set -x
 
-#get xampp
+current_version="7.2.33"
+[ -z "$1" ] && latest_version=${current_version} || latest_version=$1 
+url="https://www.apachefriends.org/xampp-files/${latest_version}/xampp-linux-x64-${latest_version}-1-installer.run"
 
-wget https://liquidtelecom.dl.sourceforge.net/project/xampp/XAMPP%20Linux/7.4.10/xampp-linux-x64-7.4.10-0-installer.run
+echo "Downloading and installing Xargs.."
 
-#make it executable
+function download {
+    url=$1
 
-sudo chmod +x xampp-linux-x64-7.4.10-0-installer.run
+    if [ -x "$(which wget)" ] ; then
+        echo "Installing via wget.."
+        sh -c "$(wget -O- ${url})"
+    elif [ -x "$(which curl)" ]; then
+       echo "Installing via curl.."
+       sh -c "$(curl -fsSL ${url})"
+    else
+        printf "Could not find curl or wget, please install one." >&2
+        exit 1
+    fi
+}
 
-#execute it
-
-./xampp-linux-x64-7.4.10-0-installer.run
+download ${url}
+exit 0
